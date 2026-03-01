@@ -86,7 +86,14 @@ export function useStore() {
         } else {
           // It's a success, let's see if it was fast enough
           const currentStepRule = prev.settings.srsSteps.find(s => s.step === card.srsStep);
-          const limit = currentStepRule?.timeLimitSecs;
+          let limit = currentStepRule?.timeLimitSecs;
+
+          if (!currentStepRule) {
+            // If the step is beyond the defined steps (e.g., Step 7+), use the time limit of the highest defined step.
+            // Based on default settings and requirements, this is typically 1 second.
+            const maxDefinedStep = prev.settings.srsSteps[prev.settings.srsSteps.length - 1];
+            limit = maxDefinedStep.timeLimitSecs;
+          }
 
           if (limit === null || limit === undefined || answerTimeSecs <= limit) {
             newStep += 1;
