@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+@theme {
+  --color-chinese-red: #D22B2B;
+  --color-chinese-gold: #F2D252;
+  --color-chinese-jade: #00A36C;
+  --color-bg-paper: #FDFBF7;
+  --color-text-dark: #333333;
+  --color-border-subtle: #E5E0D8;
+
+  --font-sans-sc: 'Noto Sans SC', sans-serif;
+  --font-serif-sc: 'Noto Serif SC', serif;
+  --font-zhi-mang: 'Zhi Mang Xing', cursive;
+  --font-ma-shan: 'Ma Shan Zheng', cursive;
+}
+
+@utility font-sc-sans {
+  font-family: var(--font-sans-sc);
+}
+
+@utility font-sc-serif {
+  font-family: var(--font-serif-sc);
+}
+
+@utility font-sc-zhi {
+  font-family: var(--font-zhi-mang);
+}
+
+@utility font-sc-ma {
+  font-family: var(--font-ma-shan);
+}
+
+@layer base {
+  body {
+    background-color: var(--color-bg-paper);
+    color: var(--color-text-dark);
+    font-family: ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  }
+}
